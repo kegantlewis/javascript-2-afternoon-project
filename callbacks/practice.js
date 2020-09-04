@@ -26,9 +26,15 @@
   Write a function called first that takes in two parameters, an array and a callback function.
   Then invoke the callback function, passing in the first element in the array as it's argument.
 */
-
-// Code Here 
-
+var arr = [10,20,30]
+function callback(x){
+  console.log(x);
+}
+function first(arr, callback){
+  var para = callback(arr[0]);
+  return para
+}
+first(arr, callback);
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
@@ -47,7 +53,15 @@ first(names, function(firstName){
   Then invoke the callback, passing in the last element in the array as the argument.
 */
 
-//Code Here
+var arr = [10,20,30]
+function callback(x){
+  console.log(x);
+}
+function last(arr, callback){
+  var para = callback(arr.pop());
+  return para
+}
+last(arr, callback);
 
 // Do not edit the code below.
 last(names, function(lastName){
@@ -64,8 +78,16 @@ last(names, function(lastName){
   Write a function called multiply that takes in three parameters: two numbers and a callback function.  
   Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 */
-
-//Code Here
+var num1 = 3;
+var num2 = 7;
+function callback(x){
+  console.log(x);
+}
+function multiply(num1, num2, callback){
+  var para = callback(num1 * num2);
+  return para
+}
+multiply(num1, num2, callback);
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -83,8 +105,20 @@ multiply(4, 3, function(answer){
   If it does, invoke the callback with true as the argument. 
   If the name does not exist, invoke the callback with false as the argument.
 */
-
-//Code Here 
+var arr = ['kegan','noah','x'];
+var name = "keggan";
+function callback(x){
+  console.log(x);
+}
+function contains(arr, name, callback){
+  if (arr.includes(name)) {
+    var para = callback(true);
+  } else {
+    var para = callback(false);
+  }
+  return para
+}
+contains(arr, name, callback);
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -105,7 +139,15 @@ contains(names, 'Colt', function(result){
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
-//Code Here
+var names = ['A', 'B', 'A', 'C', 'B'];
+function callback(x){
+  console.log(x);
+}
+function uniq(names, callback){
+  var uniqArr = [...new Set(names)];
+  callback(uniqArr);
+};
+uniq(names,callback);
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -122,14 +164,23 @@ uniq(names, function(uniqArr){
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
 
-//Code Here 
+
+var names = ['A', 'B', 'A', 'C', 'B'];
+function callback(x,y){
+  console.log('%d: %s', x, y);
+}
+function each(names, callback){
+  names.forEach(function (item, indice) {
+    callback(item, indice)
+  });
+};
+each(names,callback);
 
 // Do not edit the code below.
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
 });
 // Do not edit the code above.
-
 
 
 ////////// PROBLEM 7 //////////
@@ -139,7 +190,15 @@ each(names, function(item, indice){
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
-// Code here
+function getUserById(users, id, callback) {
+  users.forEach(function (val,i) {
+    console.log(val);
+    if (val.id === id) {
+      console.log(val);
+      callback(val);
+    }
+  });
+}
 
 // Do not edit the code below.
 var users = [
